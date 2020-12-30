@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class blog extends Model
+class Blog extends Model
 {
-    protected $fillable = ['id_akun', 'id_kategori', 'tanggal', 'konten',];
+    protected $fillable = ['id_akun', 'id_kategori', 'judul', 'tanggal', 'gambar', 'konten',];
     protected $table = 'blog';
 
     public function komentar(){

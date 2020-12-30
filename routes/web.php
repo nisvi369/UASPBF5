@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'blogController@index');
+Route::get('/blogBahari', 'blogController@bahari');
+Route::get('/blogCagarAlam', 'blogController@cagarAlam');
+Route::get('/blogBudaya', 'blogController@budaya');
+Route::get('/blogKonvensi', 'blogController@konvensi');
+Route::get('/blogLainnya', 'blogController@lainnya');

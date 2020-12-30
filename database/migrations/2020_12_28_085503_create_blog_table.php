@@ -17,7 +17,9 @@ class CreateBlogTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_akun')->unsigned()->index();
             $table->bigInteger('id_kategori')->unsigned()->index();
+            $table->string('judul');
             $table->date('tanggal');
+            $table->blob('gambar');
             $table->string('konten');
             $table->foreign('id_akun')->references('id')->on('akun');
             $table->foreign('id_kategori')->references('id')->on('kategori');
