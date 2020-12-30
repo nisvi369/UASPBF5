@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'blogController@index');
+Route::get('/form', 'blogController@form');
 Route::get('/blogBahari', 'blogController@bahari');
 Route::get('/blogCagarAlam', 'blogController@cagarAlam');
 Route::get('/blogBudaya', 'blogController@budaya');

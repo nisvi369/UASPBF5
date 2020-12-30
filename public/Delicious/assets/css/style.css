@@ -839,20 +839,21 @@ section {
 }
 
 .menu .box:hover {
-  background: #00CED1;
+  background: #c6f5f5;
   /* padding: 30px 30px 70px 30px; */
   /* box-shadow: 10px 15px 30px rgba(0, 0, 0, 0.18); */
 }
 
-.menu .box:hover span, .menu .box:hover h4, .menu .box:hover p, .menu .box:hover h6, .menu .box:hover .aksi1 a{
-  color: #fff;
-}
+/* .menu .box:hover span, .menu .box:hover h4, .menu .box:hover p, .menu .box:hover h6, .menu .box:hover .aksi1 a{
+  color: 	#0c7e78;
+} */
 
 .aksi1{
   float: right;
 }
 
 .aksi1 a{
+  padding-top: 10px;
   font-size: medium;
 }
 /*--------------------------------------------------------------

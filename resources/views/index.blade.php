@@ -1,4 +1,5 @@
 @extends('navbar')
+@extends('header')
 @section('content')
   <!-- ======= Menu Section ======= -->
   <section id="menu" class="menu">
@@ -24,7 +25,7 @@
         @foreach($blog as $blog)
           <div class="col-lg-4">
             <div class="box">
-              <span>{{$blog->gambar}}</span>
+              <img alt src="{{$blog->gambar}}">
               <h4>{{$blog->judul}}</h4>
               <h6>{{$blog->tanggal}} oleh {{$blog->nama}}</h6>
               <p>{{$blog->konten}}</p>

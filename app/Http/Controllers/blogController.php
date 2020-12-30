@@ -16,6 +16,10 @@ class blogController extends Controller
         return view('index',compact('blog'));
     }
 
+    public function form(){
+        return view('form');
+    }
+
     public function bahari(){
         // $bahari = \App\Blog::where('id_kategori', '3')->get();
         $blog = DB::table('Blog')
