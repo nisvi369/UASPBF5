@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Landing
 Route::get('/', 'blogController@index');
 Route::get('/form', 'blogController@form');
 Route::get('/blogBahari', 'blogController@bahari');
@@ -18,3 +18,9 @@ Route::get('/blogCagarAlam', 'blogController@cagarAlam');
 Route::get('/blogBudaya', 'blogController@budaya');
 Route::get('/blogKonvensi', 'blogController@konvensi');
 Route::get('/blogLainnya', 'blogController@lainnya');
+
+//Auth
+Route::get('/register', 'AuthController@register');
+Route::post('/doRegister', 'AuthController@doRegister')->name('doRegister');
+Route::get('/login', 'AuthController@login');
+Route::post('/postLogin', 'AuthController@postLogin')->name('postLogin');
