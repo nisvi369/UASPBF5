@@ -28,3 +28,14 @@ Route::post('/postLogin', 'AuthController@postLogin')->name('postLogin');
 //Form
 Route::post('/postKonten', 'BlogController@postKonten');
 Route::get('/home', 'BlogController@home');
+Route::get('/logout', 'AuthController@logout');
+
+
+Auth::routes();
+
+Route::group(['middleware' => ['auth']],function(){
+Route::get('/profile', 'AuthController@profile');
+Route::get('/ubahprofile', 'AuthController@ubahprofile');
+Route::post('/ubahprofile/{id}', 'AuthController@doubahprofile');
+
+});
