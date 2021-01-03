@@ -28,6 +28,7 @@ Route::post('/postLogin', 'AuthController@postLogin')->name('postLogin');
 //Form
 Route::post('/postKonten', 'BlogController@postKonten');
 Route::get('/index', 'BlogController@index');
+Route::get('/more/{id}', 'BlogController@more');
 
 
 Auth::routes();

@@ -87,4 +87,15 @@ class blogController extends Controller
 
         return redirect ('/index');
     }
+
+    public function more($id){
+        // $blog = Blog::find($id);
+        $blog = DB::table('blog')
+        -> join('users','users.id', '=', 'blog.id_user')
+        -> select('blog.id','users.nama','blog.judul','blog.gambar','blog.tanggal','blog.konten')
+        -> where('blog.id','=',$id)
+        -> get();
+
+        return view('more',compact('blog'));
+    }
 }
