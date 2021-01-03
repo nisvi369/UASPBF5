@@ -24,3 +24,7 @@ Route::get('/register', 'AuthController@register');
 Route::post('/doRegister', 'AuthController@doRegister')->name('doRegister');
 Route::get('/login', 'AuthController@login');
 Route::post('/postLogin', 'AuthController@postLogin')->name('postLogin');
+
+//Form
+Route::post('/postKonten', 'BlogController@postKonten');
+Route::get('/home', 'BlogController@home');

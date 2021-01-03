@@ -15,13 +15,13 @@ class CreateBlogTable extends Migration
     {
         Schema::create('blog', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('id_akun')->unsigned()->index();
+            $table->bigInteger('id_user')->unsigned()->index();
             $table->bigInteger('id_kategori')->unsigned()->index();
             $table->string('judul');
             $table->date('tanggal');
-            $table->binary('gambar');
+            $table->string('gambar');
             $table->string('konten');
-            $table->foreign('id_akun')->references('id')->on('users');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_kategori')->references('id')->on('kategori');
             $table->timestamps();
         });

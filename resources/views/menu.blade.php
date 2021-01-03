@@ -66,10 +66,11 @@
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#contact">Contact</a></li> -->
           <li><a href="#menu">Content</a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/register">Register</a></li>
+          <!-- <li><a href="/login">Login</a></li>
+          <li><a href="/register">Register</a></li> -->
 
-          <!-- <li class="book-a-table text-center"><a href="/form">Create Story</a></li> -->
+          <li class="book-a-table text-center"><a href="/form">Create Story</a></li>
+          <li><a href="/akunAdmin">My Profile</a></li>
         </ul>
       </nav><!-- .nav-menu -->
 
@@ -93,7 +94,7 @@
   <script src="{{asset('Delicious/assets/js/main.js')}}"></script>
 
   @yield('header')
-  @yield('content')
+  @yield('home')
   @yield('footer')
 </body>
 </html>
