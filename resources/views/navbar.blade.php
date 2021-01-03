@@ -51,28 +51,31 @@
 
       <div class="logo mr-auto">
         <h1 class="text-light"><a href="/"><span>Traveller's Blog</span></a></h1>
-        <!-- Uncomment below if you prefer to use an image logo -->
-        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
-
+      @if(auth()->user())
       <nav class="nav-menu d-none d-lg-block">
+     
         <ul>
           <li class="active"><a href="/">Home</a></li>
-          <!-- <li><a href="#about">About</a></li>
-          <li><a href="#menu">Menu</a></li>
-          <li><a href="#specials">Specials</a></li>
-          <li><a href="#events">Events</a></li>
-          <li><a href="#chefs">Chefs</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact">Contact</a></li> -->
           <li><a href="#menu">Content</a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/register">Register</a></li>
-
+          <!-- <li><a href="#">My Blog</a></li> -->
+          <li><a href="/profile">My Profile</a></li>
+          <li><a href="/logout">Logout</a></li>
           <li class="book-a-table text-center"><a href="/form">Create Story</a></li>
         </ul>
       </nav><!-- .nav-menu -->
-
+      @endif
+      @if(empty(auth()->user()))
+      <nav class="nav-menu d-none d-lg-block">
+      <ul>
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="#menu">Content</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+        <li class="book-a-table text-center"><a href="/form">Create Story</a></li>
+      </ul>
+    </nav>
+    @endif
     </div>
   </header>
   <!-- End Header -->

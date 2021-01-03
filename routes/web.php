@@ -24,3 +24,14 @@ Route::get('/register', 'AuthController@register');
 Route::post('/doRegister', 'AuthController@doRegister')->name('doRegister');
 Route::get('/login', 'AuthController@login');
 Route::post('/postLogin', 'AuthController@postLogin')->name('postLogin');
+Route::get('/logout', 'AuthController@logout');
+
+
+Auth::routes();
+
+Route::group(['middleware' => ['auth']],function(){
+Route::get('/profile', 'AuthController@profile');
+Route::get('/ubahprofile', 'AuthController@ubahprofile');
+Route::post('/ubahprofile/{id}', 'AuthController@doubahprofile');
+
+});

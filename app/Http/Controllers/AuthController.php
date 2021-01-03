@@ -24,17 +24,16 @@ class AuthController extends Controller {
         }
     }  
       
-      public function logout(){
+    public function logout() {
         Auth::logout();
         return redirect('/');
-     }
+    }
 
-        public function register()
-        {
+    public function register() {
           return view('auth.register');
-        }
+    }
     
-        public function doRegister(Request $request)
+    public function doRegister(Request $request)
       {
           $this->validate ($request,[
             'nama' => 'required',
@@ -58,6 +57,29 @@ class AuthController extends Controller {
         return redirect('/login')->with('Sukses','Pendaftaran Akun Berhasil');
         
       }
+
+      public function profile () {
+        return view ('auth.profile');
+      }
+
+      public function ubahprofile () {
+        return view ('auth.ubahprofile');
+      }
+
+      public function doubahprofile (Request $request,$id){
+
+        $akun = Users ::findOrFail($id);
+    
+        $akun->update([
+            'nama'  => $request->nama,
+            'email'  => $request->email,
+            'alamat' => $request->alamat,
+            'no_hp' => $request->no_hp,
+            'tanggal_lahir'  => $request->tanggal_lahir,
+        ]);
+        
+        return redirect ('/profile')->with('sukses','Data Berhasil diupdate');
+        }
 }
     
 
