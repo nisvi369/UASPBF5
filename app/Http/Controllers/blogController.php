@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\users;
-use App\blog;
+use App\Users;
+use App\Blog;
 use App\Kategori;
 use DB;
 
@@ -85,15 +85,6 @@ class blogController extends Controller
         $gambar->move(public_path().'/img', $namafile);
         $blog->save();
 
-        return redirect ('/home');
-    }
-
-    public function home(){
-        $blog = DB::table('blog')
-        -> join('users','users.id', '=', 'blog.id_user')
-        -> select('blog.id','users.nama','blog.judul','blog.gambar','blog.tanggal','blog.konten')
-        -> get();
-
-        return view('home',compact('blog'));
+        return redirect ('/index');
     }
 }

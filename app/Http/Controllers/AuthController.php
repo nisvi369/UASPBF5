@@ -26,7 +26,7 @@ class AuthController extends Controller {
           -> join('users','users.id', '=', 'blog.id_user')
           -> select('blog.id','users.nama','blog.judul','blog.gambar','blog.tanggal','blog.konten')
           -> get();  
-          return view('/home', compact('blog'));
+          return view('/index', compact('blog'));
         }
     }  
       

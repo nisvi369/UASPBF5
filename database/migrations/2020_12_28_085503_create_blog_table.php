@@ -20,7 +20,7 @@ class CreateBlogTable extends Migration
             $table->string('judul');
             $table->date('tanggal');
             $table->string('gambar');
-            $table->string('konten');
+            $table->text('konten');
             $table->foreign('id_user')->references('id')->on('users');
             $table->foreign('id_kategori')->references('id')->on('kategori');
             $table->timestamps();

@@ -25,12 +25,12 @@
         @foreach($blog as $blog)
           <div class="col-lg-4">
             <div class="box">
-              <img src="{{asset('img/'.$blog->gambar)}}" height="80%" width="40%" alt="" srcset="">
+              <img src="{{asset('img/'.$blog->gambar)}}" height="100%" width="100%" alt="" srcset="">
               <h4>{{$blog->judul}}</h4>
               <h6>{{$blog->tanggal}} oleh {{$blog->nama}}</h6>
-              <p text-indent: 1em;>{{$blog->konten}}</p>
+              <p style="text-align: justify">{!!substr($blog->konten, 0, 200)!!}...</p>
               <div class="aksi1">
-                <a href="/more/{{$blog->id}}...">More<a>
+                <a href="/more/{{$blog->id}}">More<a>
               </div><hr>
             </div>
           </div>

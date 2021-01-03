@@ -1,4 +1,3 @@
-
 @section('header')
 <!-- ======= Hero Section ======= -->
 <section id="hero">
