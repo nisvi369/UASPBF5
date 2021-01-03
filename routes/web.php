@@ -38,4 +38,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/ubahprofile', 'AuthController@ubahprofile');
     Route::post('/ubahprofile/{id}', 'AuthController@doubahprofile');
     Route::get('/logout', 'AuthController@logout');
+    Route::get('/blogsaya', 'AuthController@blogsaya');
+    Route::get('/edit/{id}', 'AuthController@edit');
+    Route::get('/hapus/{id}', 'AuthController@hapus');
 });

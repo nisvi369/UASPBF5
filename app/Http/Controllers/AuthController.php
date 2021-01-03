@@ -85,7 +85,30 @@ class AuthController extends Controller {
         ]);
         
         return redirect ('/profile')->with('sukses','Data Berhasil diupdate');
-        }
+      }
+
+      public function blogsaya(){
+        $user = auth::user()->id;
+        $blog = DB::table('blog')
+        -> join('kategori', 'kategori.id', '=', 'blog.id_kategori')
+        -> select('blog.id','kategori.jenis','blog.judul','blog.gambar','blog.tanggal','blog.konten')
+        -> where ('blog.id_user','=', $user)
+        -> get();
+        return view('auth.blogsaya',['blog'=> $blog]);
+      }
+
+      public function edit(Request $request, $id){
+        $blog = \App\Blog::find($id);
+        $blog = DB::table('blog')
+        -> join('users','users.id', '=', 'blog.id_user')
+        -> join('kategori','kategori.id', '=', 'blog.id_kategori')
+        -> select('blog.id','blog.id_kategori','kategori.jenis','users.nama','blog.judul','blog.gambar','blog.tanggal','blog.konten')
+        -> first(); 
+       
+        return view('auth.edit', compact('blog'));
+      }
+
+      public function hapus(){}
 }
     
 

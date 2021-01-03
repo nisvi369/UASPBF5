@@ -94,7 +94,7 @@
                    
                             <ul class="book-a-table text-center"><a href="/ubahprofile">Ubah Profil</a></ul>
                             <br>
-                            <ul class="book-a-table text-center"><a href="/ubahprofile">Kelola Blog Saya</a></ul>
+                            <ul class="book-a-table text-center"><a href="/blogsaya">Kelola Blog Saya</a></ul>
                         <li>
                         </nav>
                     </div>
