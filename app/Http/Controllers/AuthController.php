@@ -108,7 +108,12 @@ class AuthController extends Controller {
         return view('auth.edit', compact('blog'));
       }
 
-      public function hapus(){}
+      public function hapus($id){
+        $blog = \App\Blog::find($id);
+        $blog->delete();
+        
+        return redirect ('blogsaya')->with('Tulisan Anda telah dihapus');
+      }
 }
     
 
