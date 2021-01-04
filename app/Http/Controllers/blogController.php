@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Users;
-use App\Blog;
-use App\Kategori;
+use App\users;
+use App\blog;
+use App\kategori;
 use DB;
 
 class blogController extends Controller

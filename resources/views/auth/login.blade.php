@@ -39,7 +39,7 @@
 
                         <div class="form-submit">
                             <input type="submit" value="Login" class="submit" id="submit" name="submit" />
-                            <a href="/register" class="vertify-booking">Belum memiliki akun? Silahkan buat akun anda</a>
+                            <a href="/daftar" class="vertify-booking">Belum memiliki akun? Silahkan buat akun anda</a>
                         </div>
                     </form>
                 </div>

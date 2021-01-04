@@ -24,7 +24,7 @@
 <div class="container" id="form">
     <div class="row">
         <div class="col-md-12">
-            <form method="POST" action="/update" enctype="multipart/form-data">
+            <form method="POST" action="/blogsaya/{{$blog->id}}/update" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <!-- <label for="nama">Penulis</label> -->
@@ -38,9 +38,9 @@
                     <label for="kategori">Kategori</label>
                     <select class="form-control" name="id_kategori" id="id_kategori" value="{{$blog->jenis}}" required oninvalid="this.setCustomValidity('Form harap diisi semua')" oninput="setCustomValidity('')">
                         <option>Pilih Kategori</option>
-                        @foreach ($kategori as $kategori)
+                        @foreach ($kategori as $item)
                             <option 
-                                value="{{ $kategori->id }}">{{ $kategori->jenis}}
+                                value="{{ $item->id }}">{{ $item->jenis}}
                             </option>
                         @endforeach
                         </option>
@@ -49,9 +49,11 @@
                 <div class="form-group">
                     <label for="issue">Konten</label>
                     <input type="hidden" name="konten" value="{{$blog->konten}}">
-                    <div id="konten" style="min-height: 10em;" class="ql-container ql-snow"></div>
+                    <div id="konten" style="min-height: 10em;" class="ql-container ql-snow">
+                    <p style="text-align: justify">{!!($blog->konten)!!}</p>
+                    </div>
                 </div>
-                <div class="form-group">
+                <div class="form">
                     <label for="gambar">Gambar</label>
                     <input type="file" name="gambar" id="gambar" value="{{$blog->gambar}}" required="required" />
                 </div><br>

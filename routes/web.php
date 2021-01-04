@@ -20,7 +20,7 @@ Route::get('/blogKonvensi', 'blogController@konvensi');
 Route::get('/blogLainnya', 'blogController@lainnya');
 
 //Auth
-Route::get('/register', 'AuthController@register');
+Route::get('/daftar', 'AuthController@register');
 Route::post('/doRegister', 'AuthController@doRegister')->name('doRegister');
 Route::get('/login', 'AuthController@login');
 Route::post('/postLogin', 'AuthController@postLogin')->name('postLogin');
@@ -40,5 +40,6 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/logout', 'AuthController@logout');
     Route::get('/blogsaya', 'AuthController@blogsaya');
     Route::get('/edit/{id}', 'AuthController@edit');
+    Route::post('/blogsaya/{id}/update', 'AuthController@update');
     Route::get('/hapus/{id}', 'AuthController@hapus');
 });

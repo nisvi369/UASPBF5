@@ -72,7 +72,7 @@
         <li class="active"><a href="/">Home</a></li>
         <li><a href="#menu">Content</a></li>
         <li><a href="/login">Login</a></li>
-        <li><a href="/register">Register</a></li>
+        <li><a href="/daftar">Register</a></li>
         <!-- <li class="book-a-table text-center"><a href="/form">Create Story</a></li> -->
       </ul>
     </nav>

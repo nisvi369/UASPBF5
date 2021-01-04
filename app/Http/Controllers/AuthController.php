@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\users;
+use App\kategori;
+use App\blog;
 use DB;
 
 class AuthController extends Controller {
@@ -98,18 +100,33 @@ class AuthController extends Controller {
       }
 
       public function edit(Request $request, $id){
-        $blog = \App\Blog::find($id);
+        $kategori = \App\kategori::all();
+        $blog = \App\blog::find($id);
         $blog = DB::table('blog')
         -> join('users','users.id', '=', 'blog.id_user')
         -> join('kategori','kategori.id', '=', 'blog.id_kategori')
         -> select('blog.id','blog.id_kategori','kategori.jenis','users.nama','blog.judul','blog.gambar','blog.tanggal','blog.konten')
         -> first(); 
        
-        return view('auth.edit', compact('blog'));
+        return view('auth.edit',['kategori'=> $kategori], compact('blog'));
+      }
+      public function update (Request $request,$id) {
+
+      $blog = blog::findOrFail($id);
+ 
+
+      $blog->update([
+          'judul'  => $request->judul,
+          'id_kategori' => $request->id_kategori,
+          'konten' => $request->konten,
+          'gambar' => $request->gambar,
+      ]);
+      
+      return redirect ('/blogsaya')->with('sukses','Data Berhasil diupdate');;
       }
 
       public function hapus($id){
-        $blog = \App\Blog::find($id);
+        $blog = \App\blog::find($id);
         $blog->delete();
         
         return redirect ('blogsaya')->with('Tulisan Anda telah dihapus');
