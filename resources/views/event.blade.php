@@ -28,7 +28,7 @@
               <img src="{{asset('img/'.$e->gambar)}}" height="100%" width="100%" alt="" srcset="">
               <h4>{{$e->judul}}</h4>
               <h6>Tanggal : {{$e->tanggal}}</h6>
-              <h6>Jam : {{$e->tanggal}}</h6>
+              <h6>Jam : {{$e->jam}}</h6>
               <p style="text-align: justify">{!!substr($e->deskripsi, 0, 200)!!}</p>
               <div class="aksi1">
                 <a href="/more/{{$e->id}}">More<a>
