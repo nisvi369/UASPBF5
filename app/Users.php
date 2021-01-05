@@ -15,11 +15,14 @@ class users extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['id','nama', 'email', 'password','no_hp','alamat','tanggal_lahir',];
+    protected $fillable = ['nama', 'email', 'password','no_hp','alamat','tanggal_lahir',];
     protected $table = 'users';
 
     public function blog() {
     	return $this->hasOne('App\blog');
+    }
+    public function event() {
+    	return $this->hasOne('App\Event');
     }
 
     /**
