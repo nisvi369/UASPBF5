@@ -95,6 +95,8 @@
                             <ul class="book-a-table text-center"><a href="/ubahprofile">Ubah Profil</a></ul>
                             <br>
                             <ul class="book-a-table text-center"><a href="/blogsaya">Kelola Blog Saya</a></ul>
+                            <br>
+                            <ul class="book-a-table text-center"><a href="/event">Event Saya</a></ul>
                         <li>
                         </nav>
                     </div>

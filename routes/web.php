@@ -42,4 +42,5 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/edit/{id}', 'AuthController@edit');
     Route::post('/blogsaya/{id}/update', 'AuthController@update');
     Route::get('/hapus/{id}', 'AuthController@hapus');
+    
 });
