@@ -100,16 +100,12 @@ class AuthController extends Controller {
       }
 
       public function edit(Request $request, $id){
-        $kategori = \App\kategori::all();
-        $blog = \App\blog::find($id);
-        $blog = DB::table('blog')
-        -> join('users','users.id', '=', 'blog.id_user')
-        -> join('kategori','kategori.id', '=', 'blog.id_kategori')
-        -> select('blog.id','blog.id_kategori','kategori.jenis','users.nama','blog.judul','blog.gambar','blog.tanggal','blog.konten')
-        -> first(); 
+        $kategori = kategori::all();
+        $blog = blog::findOrFail($id);
        
         return view('auth.edit',['kategori'=> $kategori], compact('blog'));
       }
+
       public function update (Request $request,$id) {
 
       $blog = blog::findOrFail($id);
@@ -119,11 +115,21 @@ class AuthController extends Controller {
           'judul'  => $request->judul,
           'id_kategori' => $request->id_kategori,
           'konten' => $request->konten,
-          'gambar' => $request->gambar,
+          // 'gambar' => $request->hasFile('gambar') ? $namafile : $blog->gambar,
       ]);
+      if ($request->hasFile('gambar')){
+          $request->validate([
+            'gambar'        => 'required|image|mimes:jpeg,png,jpg|max:2048',
+        ],[
+            'gambar.required' => 'Harus dalam ekstensi foto dan tidak melibihi 2 MB',
+        ]);
+
+        $request->file('gambar')->move('img/', $request->file('gambar')->getClientOriginalName());
+        $blog->gambar = $request->file('gambar')->getClientOriginalName();
+        $blog->save();
       
       return redirect ('/blogsaya')->with('sukses','Data Berhasil diupdate');;
-      }
+      }}
 
       public function hapus($id){
         $blog = \App\blog::find($id);

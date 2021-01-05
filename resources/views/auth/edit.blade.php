@@ -53,10 +53,16 @@
                     <p style="text-align: justify">{!!($blog->konten)!!}</p>
                     </div>
                 </div>
-                <div class="form">
+                <div class="form-group>
                     <label for="gambar">Gambar</label>
-                    <input type="file" name="gambar" id="gambar" value="{{$blog->gambar}}" required="required" />
-                </div><br>
+                    <br>
+                    <!-- <input type="file" name="gambar" id="gambar" value="{{asset('img/'.$blog->gambar)}} " required="required" /> -->
+                    <img class="img-fluid" src="{{  asset( 'img'. '/' . $blog->gambar) }}" height="70%" width="40%">
+                    <br>
+                    
+                    <input type="file" name="gambar" id="gambar" value="{{asset('img/'.$blog->gambar)}} " required="required" />
+                </div><br><br>
+                
                 <button type="submit" class="btn btn-info">Simpan</button>
                 <a href="/" class="btn btn-light">Kembali</a>
             </form>
