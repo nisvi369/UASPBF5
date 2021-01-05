@@ -19,6 +19,11 @@ Route::get('/blogBudaya', 'blogController@budaya');
 Route::get('/blogKonvensi', 'blogController@konvensi');
 Route::get('/blogLainnya', 'blogController@lainnya');
 
+//Event
+Route::get('/event', 'eventController@event');
+Route::get('/form-event', 'eventController@form');
+Route::post('/postEvent', 'eventController@postEvent');
+
 //Auth
 Route::get('/daftar', 'AuthController@register');
 Route::post('/doRegister', 'AuthController@doRegister')->name('doRegister');

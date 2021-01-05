@@ -56,10 +56,9 @@
       <nav class="nav-menu d-none d-lg-block">
      
         <ul>
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="#menu">Content</a></li>
+          <li class="active"><a href="/">Story</a></li>
           <li><a href="/event">Event</a></li>
-          <li class="book-a-table text-center"><a href="/form">Create Story</a></li>
+          <li class="book-a-table text-center"><a href="/form">Write Story</a></li>
           <!-- <li><a href="#">My Blog</a></li> -->
           <li><a href="/profile">My Profile</a></li>
           <li><a href="/logout">Logout</a></li>

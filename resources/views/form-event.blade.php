@@ -11,7 +11,7 @@
         color: white;
     }
 
-    #konten{
+    #deskripsi{
         background-color:white;
         color: black;
     }
@@ -24,7 +24,7 @@
 <div class="container" id="form">
     <div class="row">
         <div class="col-md-12">
-            <form method="POST" action="/blogsaya/{{$blog->id}}/update" enctype="multipart/form-data">
+            <form method="POST" action="/postEvent" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <!-- <label for="nama">Penulis</label> -->
@@ -32,39 +32,31 @@
                 </div>
                 <div class="form-group">
                     <label for="title">Judul</label>
-                    <input type="text" class="form-control" name="judul" id="judul" value="{{$blog->judul}}" required oninvalid="this.setCustomValidity('Form harap diisi semua')" oninput="setCustomValidity('')"/>
+                    <input type="text" class="form-control" name="judul" id="judul" value="" required oninvalid="this.setCustomValidity('Form harap diisi semua')" oninput="setCustomValidity('')"/>
                 </div>
                 <div class="form-group">
-                    <label for="kategori">Kategori</label>
-                    <select class="form-control" name="id_kategori" id="id_kategori" value="{{$blog->jenis}}" required oninvalid="this.setCustomValidity('Form harap diisi semua')" oninput="setCustomValidity('')">
-                        <option>Pilih Kategori</option>
-                        @foreach ($kategori as $item)
-                            <option 
-                                value="{{ $item->id }}">{{ $item->jenis}}
-                            </option>
-                        @endforeach
-                        </option>
-                    </select>
+                    <label for="tempat">Lokasi</label>
+                    <input type="text" class="form-control" name="tempat" id="tempat" value="" required oninvalid="this.setCustomValidity('Form harap diisi semua')" oninput="setCustomValidity('')"/>
                 </div>
                 <div class="form-group">
-                    <label for="issue">Konten</label>
-                    <input type="hidden" name="konten" value="{{$blog->konten}}">
-                    <div id="konten" style="min-height: 10em;" class="ql-container ql-snow">
-                    <p style="text-align: justify">{!!($blog->konten)!!}</p>
-                    </div>
+                    <label for="tanggal">Tanggal</label>
+                    <input type="date" class="form-control" name="tanggal" id="tanggal" value="" required oninvalid="this.setCustomValidity('Form harap diisi semua')" oninput="setCustomValidity('')"/>
                 </div>
-                <div class="form-group>
+                <div class="form-group">
+                    <label for="jam">Waktu</label>
+                    <input type="time" class="form-control" name="jam" id="jam" value="" required oninvalid="this.setCustomValidity('Form harap diisi semua')" oninput="setCustomValidity('')"/>
+                </div>
+                <div class="form-group">
+                    <label for="deskripsi">Deskripsi</label>
+                    <input type="hidden" name="deskripsi">
+                    <div id="deskripsi" style="min-height: 10em;" class="ql-container ql-snow"></div>
+                </div>
+                <div class="form-group">
                     <label for="gambar">Gambar</label>
-                    <br>
-                    <!-- <input type="file" name="gambar" id="gambar" value="{{asset('img/'.$blog->gambar)}} " required="required" /> -->
-                    <img class="img-fluid" src="{{  asset( 'img'. '/' . $blog->gambar) }}" height="70%" width="40%">
-                    <br>
-                    
-                    <input type="file" name="gambar" id="gambar" value="{{asset('img/'.$blog->gambar)}} " required="required" />
-                </div><br><br>
-                
+                    <input type="file" name="gambar" id="gambar" value="" required="required" />
+                </div><br>
                 <button type="submit" class="btn btn-info">Simpan</button>
-                <a href="/blogsaya" class="btn btn-light">Kembali</a>
+                <a href="/" class="btn btn-light">Kembali</a>
             </form>
         </div>
     </div>
@@ -95,7 +87,7 @@
         ['clean']                                         // remove formatting button
     ];
 
-    var quill = new Quill('#konten', {
+    var quill = new Quill('#deskripsi', {
         modules: {
             toolbar: toolbarOptions,
             imageResize: {
@@ -106,7 +98,7 @@
     });
     $(document).ready(function () {
         $("form").submit(function () {
-            $("input[name=konten]").val($("#konten>div").html());
+            $("input[name=deskripsi]").val($("#deskripsi>div").html());
         });
     });
 </script>

@@ -5,10 +5,10 @@
   <section id="menu" class="menu">
     <div class="container">
       <div class="section-title">
-        <h2>Let's Share <span>Our Wonderful Memories</span></h2>
+        <h2>Let's Explore <span>Our Beautiful World</span></h2>
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-lg-12 d-flex justify-content-center">
           <ul id="menu-flters">
             <a href="/"><li>Show All</li></a>
@@ -19,18 +19,19 @@
             <a href="/blogLainnya"><li>Lainnya</li></a>
           </ul>
         </div>
-      </div>
+      </div> -->
       <br>
       <div class="row">
-        @foreach($blog as $blog)
+        @foreach($event as $e)
           <div class="col-lg-4">
             <div class="box">
-              <img src="{{asset('img/'.$blog->gambar)}}" height="100%" width="100%" alt="" srcset="">
-              <h4>{{$blog->judul}}</h4>
-              <h6>{{$blog->tanggal}} oleh {{$blog->nama}}</h6>
-              <p style="text-align: justify">{!!substr($blog->konten, 0, 200)!!}</p>
+              <img src="{{asset('img/'.$e->gambar)}}" height="100%" width="100%" alt="" srcset="">
+              <h4>{{$e->judul}}</h4>
+              <h6>Tanggal : {{$e->tanggal}}</h6>
+              <h6>Jam : {{$e->tanggal}}</h6>
+              <p style="text-align: justify">{!!substr($e->deskripsi, 0, 200)!!}</p>
               <div class="aksi1">
-                <a href="/more/{{$blog->id}}">More<a>
+                <a href="/more/{{$e->id}}">More<a>
               </div><hr>
             </div>
           </div>

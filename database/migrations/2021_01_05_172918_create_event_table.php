@@ -18,6 +18,7 @@ class CreateEventTable extends Migration
             $table->bigInteger('id_user')->unsigned()->index();
             $table->string('judul');
             $table->string('gambar');
+            $table->string('tempat');
             $table->date('tanggal');
             $table->time('jam');
             $table->string('deskripsi');

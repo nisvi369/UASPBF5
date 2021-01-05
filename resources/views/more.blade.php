@@ -34,7 +34,7 @@
             <center><h6>{{$blog->tanggal}} oleh {{$blog->nama}}</h6></center>
             <p>{!!$blog->konten!!}</p>
             <hr>
-            <a href="/" class="btn btn-light btn-sm">Kembali</a>
+            <a href="/blogsaya" class="btn btn-light btn-sm">Kembali</a>
             @endforeach
         </div>
     </div>
