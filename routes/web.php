@@ -51,7 +51,7 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/hapus/{id}', 'AuthController@hapus');
     //event
     Route::get('/eventsaya', 'EventController@eventsaya');
-    Route::get('/hapus/{id}', 'EventController@hapus');
-    Route::get('/edit/{id}', 'EventController@edit');
-    Route::post('/eventsaya/{id}/update', 'EventController@update');
+    Route::get('/hapus-event/{id}', 'EventController@hapusevent');
+    Route::get('/edit-event/{id}', 'EventController@editevent');
+    Route::post('/eventsaya/{id}/update', 'EventController@updateevent');
 });

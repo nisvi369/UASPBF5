@@ -33,11 +33,11 @@
                 <img src="{{asset('img/'.$e->gambar)}}" height="70%" width="40%" alt="" srcset="">
             </div>
             </center>
-            <center><h6>Oleh {{$e->nama}}</h6></center>
+            <center><h5>Ditulis oleh {{$e->nama}}</h5></center>
             <br>
-            <h4>Tanggal : {{$e->tanggal}}</h4>
-            <h4>Jam : {{$e->jam}}</h4>
-            <h4>Lokasi : {{$e->tempat}}</h4>
+            <h5>Tanggal : {{$e->tanggal}}</h5>
+            <h5>Jam : {{$e->jam}}</h5>
+            <h5>Lokasi : {{$e->tempat}}</h5>
             
         
             <p>{!!$e->deskripsi!!}</p>

@@ -68,8 +68,7 @@
       @if(empty(auth()->user()))
       <nav class="nav-menu d-none d-lg-block">
       <ul>
-        <li class="active"><a href="/">Home</a></li>
-        <li><a href="#menu">Content</a></li>
+        <li class="active"><a href="/">Story</a></li>
         <li><a href="/event">Event</a></li>
         <li><a href="/login">Login</a></li>
         <li><a href="/daftar">Register</a></li>

@@ -30,8 +30,8 @@
                 <a href="/eventmore/{{$e->id}}">More<a>
               </div><hr>
               <div class="aksi2">
-                <a href="/edit/{{$e->id}}" class="btn btn-warning btn-sm">Edit</a>
-                <a href="/hapus/{{$e->id}}" class="btn btn-secondary btn-sm" id="hapus" onclick="return confirm('Apakah Anda yakin akan menghapus {{$e->judul}}?')">Delete</a>
+                <a href="/edit-event/{{$e->id}}" class="btn btn-warning btn-sm">Edit</a>
+                <a href="/hapus-event/{{$e->id}}" class="btn btn-secondary btn-sm" id="hapus" onclick="return confirm('Apakah Anda yakin akan menghapus {{$e->judul}}?')">Delete</a>
               </div>
             </div>
           </div>

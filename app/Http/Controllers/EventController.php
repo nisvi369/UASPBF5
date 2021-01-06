@@ -61,21 +61,21 @@ class EventController extends Controller
         return view('auth.eventsaya',['event'=> $event]);
     }
 
-    public function hapus($id){
+    public function hapusevent($id){
         $event = \App\event::find($id);
         $event->delete();
         
         return redirect ('eventsaya')->with('Event Anda telah dihapus');
     }
 
-    public function edit(Request $request, $id){
+    public function editevent(Request $request, $id){
        
         $event = event::findOrFail($id);
        
         return view('auth.eventedit',compact('event'));
     }
 
-    public function update (Request $request,$id) {
+    public function updateevent (Request $request,$id) {
 
         $event = event::findOrFail($id);
    
