@@ -16,6 +16,13 @@
 <section id="menu" class="menu">
     <div class="container">
         <div class="row">
+        @if(count($event) < 1 )
+        <div class="col-lg-12">
+            <div class="box">
+              <center>Kamu belum menuliskan event apapun</center>
+            </div>
+        </div>
+        @else
         @foreach($event as $e)
         <div class="col-lg-4">
             <div class="box">
@@ -36,6 +43,7 @@
             </div>
           </div>
         @endforeach
+        @endif
         </div>
     </div>
 </section>

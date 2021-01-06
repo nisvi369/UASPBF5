@@ -16,6 +16,13 @@
 <section id="menu" class="menu">
     <div class="container">
         <div class="row">
+        @if(count($blog) < 1 )
+        <div class="col-lg-12">
+            <div class="box">
+              <center>Kamu belum menuliskan cerita apapun</center>
+            </div>
+        </div>
+        @else
         @foreach($blog as $blog)
           <div class="col-lg-4">
             <div class="box">
@@ -34,6 +41,7 @@
             </div>
           </div>
         @endforeach
+        @endif
         </div>
     </div>
 </section>

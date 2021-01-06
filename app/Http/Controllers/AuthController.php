@@ -117,19 +117,13 @@ class AuthController extends Controller {
           'konten' => $request->konten,
           // 'gambar' => $request->hasFile('gambar') ? $namafile : $blog->gambar,
       ]);
-      if ($request->hasFile('gambar')){
-          $request->validate([
-            'gambar'        => 'required|image|mimes:jpeg,png,jpg|max:2048',
-        ],[
-            'gambar.required' => 'Harus dalam ekstensi foto dan tidak melibihi 2 MB',
-        ]);
 
         $request->file('gambar')->move('img/', $request->file('gambar')->getClientOriginalName());
         $blog->gambar = $request->file('gambar')->getClientOriginalName();
         $blog->save();
       
       return redirect ('/blogsaya')->with('sukses','Data Berhasil diupdate');;
-      }}
+      }
 
       public function hapus($id){
         $blog = \App\blog::find($id);

@@ -88,18 +88,13 @@ class EventController extends Controller
             'deskripsi' => $request->deskripsi,
             
         ]);
-        if ($request->hasFile('gambar')){
-            $request->validate([
-              'gambar'        => 'required|image|mimes:jpeg,png,jpg|max:2048',
-          ],[
-              'gambar.required' => 'Harus dalam ekstensi foto dan tidak melibihi 2 MB',
-          ]);
+        
   
           $request->file('gambar')->move('img/', $request->file('gambar')->getClientOriginalName());
           $event->gambar = $request->file('gambar')->getClientOriginalName();
           $event->save();
         
         return redirect ('/eventsaya')->with('sukses','Data Berhasil diupdate');;
-        }}
+        }
 
 }
