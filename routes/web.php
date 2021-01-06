@@ -53,5 +53,5 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/eventsaya', 'EventController@eventsaya');
     Route::get('/hapus-event/{id}', 'EventController@hapusevent');
     Route::get('/edit-event/{id}', 'EventController@editevent');
-    Route::post('/eventsaya/{id}/update', 'EventController@updateevent');
+    Route::post('/edit-event/{id}/update', 'EventController@updateevent');
 });

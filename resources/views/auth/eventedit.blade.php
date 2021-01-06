@@ -24,7 +24,7 @@
 <div class="container" id="form">
     <div class="row">
         <div class="col-md-12">
-            <form method="POST" action="/eventsaya/{{$event->id}}/update" enctype="multipart/form-data">
+            <form method="POST" action="/edit-event/{{$event->id}}/update" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="form-group">
                     <!-- <label for="nama">Penulis</label> -->
