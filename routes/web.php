@@ -23,6 +23,7 @@ Route::get('/blogLainnya', 'blogController@lainnya');
 Route::get('/event', 'eventController@event');
 Route::get('/form-event', 'eventController@form');
 Route::post('/postEvent', 'eventController@postEvent');
+Route::get('/eventmore/{id}', 'eventController@more');
 
 //Auth
 Route::get('/daftar', 'AuthController@register');
@@ -43,9 +44,14 @@ Route::group(['middleware' => ['auth']],function(){
     Route::get('/ubahprofile', 'AuthController@ubahprofile');
     Route::post('/ubahprofile/{id}', 'AuthController@doubahprofile');
     Route::get('/logout', 'AuthController@logout');
+    //blog
     Route::get('/blogsaya', 'AuthController@blogsaya');
     Route::get('/edit/{id}', 'AuthController@edit');
     Route::post('/blogsaya/{id}/update', 'AuthController@update');
     Route::get('/hapus/{id}', 'AuthController@hapus');
-    
+    //event
+    Route::get('/eventsaya', 'EventController@eventsaya');
+    Route::get('/hapus/{id}', 'EventController@hapus');
+    Route::get('/edit/{id}', 'EventController@edit');
+    Route::post('/eventsaya/{id}/update', 'EventController@update');
 });

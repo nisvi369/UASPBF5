@@ -23,7 +23,7 @@
               <h4>{{$blog->judul}}</h4>
               <h6>Tanggal : {{$blog->tanggal}}</h6>
               <h6>Kategori : {{$blog->jenis}}</h6>
-              <p style="text-align: justify">{!!substr($blog->konten, 0, 250)!!}...</p>
+              <p style="text-align: justify">{!!substr($blog->konten, 0, 250)!!}</p>
               <div class="aksi1">
                 <a href="/more/{{$blog->id}}">More<a>
               </div><hr>

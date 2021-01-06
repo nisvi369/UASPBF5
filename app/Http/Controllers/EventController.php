@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Event;
+use App\Users;
 
 class EventController extends Controller
 {
     public function event(){
         $event = DB::table('Event')
         -> join('users','users.id', '=', 'event.id_user')
-        -> select('event.id','users.nama','event.judul','event.gambar','event.tanggal','event.jam','event.deskripsi')
+        -> select('event.id','users.nama','event.tempat','event.judul','event.gambar','event.tanggal','event.jam','event.deskripsi')
         -> get();
 
         return view('event',compact('event'));
@@ -39,4 +41,65 @@ class EventController extends Controller
 
         return redirect ('event');
     }
+    public function more ($id){
+        // $blog = Blog::find($id);
+        $event = DB::table('event')
+        -> join('users','users.id', '=', 'event.id_user')
+        -> select('event.id','users.nama','event.judul','event.tempat','event.gambar','event.tanggal','event.jam','event.deskripsi')
+        -> where('event.id','=',$id)
+        -> get();
+
+        return view('event-more',compact('event'));
+    }
+    public function eventsaya(){
+        $user = auth::user()->id;
+        $event = DB::table('event')
+        -> join('users','users.id', '=', 'event.id_user')
+        -> select('event.id','users.nama','event.judul','event.tempat','event.gambar','event.tanggal','event.jam','event.deskripsi')
+        -> where('event.id_user','=',$user)
+        -> get();
+        return view('auth.eventsaya',['event'=> $event]);
+    }
+
+    public function hapus($id){
+        $event = \App\event::find($id);
+        $event->delete();
+        
+        return redirect ('eventsaya')->with('Event Anda telah dihapus');
+    }
+
+    public function edit(Request $request, $id){
+       
+        $event = event::findOrFail($id);
+       
+        return view('auth.eventedit',compact('event'));
+    }
+
+    public function update (Request $request,$id) {
+
+        $event = event::findOrFail($id);
+   
+  
+        $event->update([
+            'judul'  => $request->judul,
+            'tempat' => $request->tempat,
+            'tanggal' => $request->tanggal,
+            'jam' => $request->jam,
+            'deskripsi' => $request->deskripsi,
+            
+        ]);
+        if ($request->hasFile('gambar')){
+            $request->validate([
+              'gambar'        => 'required|image|mimes:jpeg,png,jpg|max:2048',
+          ],[
+              'gambar.required' => 'Harus dalam ekstensi foto dan tidak melibihi 2 MB',
+          ]);
+  
+          $request->file('gambar')->move('img/', $request->file('gambar')->getClientOriginalName());
+          $event->gambar = $request->file('gambar')->getClientOriginalName();
+          $event->save();
+        
+        return redirect ('/eventsaya')->with('sukses','Data Berhasil diupdate');;
+        }}
+
 }
